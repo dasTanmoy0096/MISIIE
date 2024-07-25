@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CPP Tender Detail</title>
+    <link rel="stylesheet" href="{% static 'MIS/detail.css' %}">
+</head>
+<body>
+<div class="container">
+    <div class="title">CPP Tender Detail</div>
+
+    <table>
+        <tr>
+            <th colspan="2">Basic Details</th>
+        </tr>
+        <tr>
+            <td><b>Tender Reference Number</b></td>
+            <td>{{ entry.tenderRefNum }}</td>
+        </tr>
+        <tr>
+            <td><b>Tender ID</b></td>
+            <td>{{ entry.tenderID }}</td>
+        </tr>
+        <tr>
+            <td><b>Tender Title</b></td>
+            <td>{{ entry.tenderTitle }}</td>
+        </tr>
+        <tr>
+            <td><b>Tender Category</b></td>
+            <td>{{ entry.tenderCategory }}</td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <th colspan="3">Tender Fee Details</th>
+        </tr>
+        <tr>
+            <td><b>Tender Fee Type</b></td>
+            <td><b>Tender Fee</td></b>
+            <td><b>Tender Value</td></b>
+        </tr>
+        <tr>
+            <td>{{ entry.tenderFeeType }}</td>
+            <td>{{ entry.tenderFee }}</td>
+            <td>{{ entry.tenderValue }}</td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <th colspan="2">EMD Fee Details</th>
+        </tr>
+        <tr>
+            <td><b>EMD Type</td></b>
+            <td><b>EMD</td></b>
+        </tr>
+        <tr>
+            <td>{{ entry.emdType }}</td>
+            <td>{{ entry.emd }}</td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <th colspan="4">BID Details</th>
+        </tr>
+        <tr>
+            <td><b>Technical Bid Opening Date</b></td>
+            <td colspan="3">{{ entry.techBidOpeningDate }}</td>
+        </tr>
+        <tr>
+            <td><b>Financial Bid Opening Date</b></td>
+            <td colspan="3">{{ entry.finBidOpeningDate }}</td>
+        </tr>
+        <tr>
+            <td><b>L1 Bidder Emd</td></b>
+            <td><b>L1 Bidder Emd Value</td></b>
+            <td><b>L1 Bidder Bg</td></b>
+            <td><b>L1 Bidder Bg Value</td></b>
+        </tr>
+        <tr>
+            <td>{{ entry.l1BidderEmd }}</td>
+            <td>{{ entry.l1BidderEmdValue }}</td>
+            <td>{{ entry.l1BidderBg }}</td>
+            <td>{{ entry.l1BidderBgValue }}</td>
+        </tr>
+        <tr>
+            <td><b>Payment Options</b></td>
+            <td colspan="3">{{ entry.paymentOptions }}</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

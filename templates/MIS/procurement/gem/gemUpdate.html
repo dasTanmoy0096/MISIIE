@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "MIS/tenderForm.css" %}">
+    <title>GEM Form</title>
+</head>
+<body>
+<div class="form-container">
+    <h1>GEM Form</h1>
+    <form action="{% url 'addGem' %}" method="post">
+        {% csrf_token %}
+{#        <div class="form-group">#}
+{#            <label for="gemRefNum">GEM Reference Number:</label>#}
+{#            <input type="number" id="gemRefNum" name="gemRefNum" required>#}
+{#        </div>#}
+{##}
+{#        <div class="form-group">#}
+{#            <label for="gemBidID">GEM Bid ID:</label>#}
+{#            <input type="text" id="gemBidID" name="gemBidID" required>#}
+{#        </div>#}
+{#        #}
+{#        <div class="form-group">#}
+{#            <label for="gemName">GEM Name</label>#}
+{#            <input type="text" id="gemName" name="gemName" required>#}
+{#        </div>#}
+{#            #}
+{#        <div class="form-group">#}
+{#            <label for="gemCategory">GEM Category:</label>#}
+{#            <select id="gemCategory" name="gemCategory">#}
+{#                <option value="goods">Goods</option>#}
+{#                <option value="service">Services</option>#}
+{#            </select>#}
+{#        </div>#}
+{##}
+{#        <div class="form-group">#}
+{#            <label for="gemFee">GEM Fee:</label>#}
+{#            <select id="gemFeeType" name="gemFeeType">#}
+{#                <option value="paid">Paid</option>#}
+{#                <option value="unpaid">Unpaid</option>#}
+{#            </select>#}
+{#            <input type="text" id="gemFee" name="gemFee" placeholder="Enter Fee" required>#}
+{#        </div>#}
+{##}
+{#        <div class="form-group">#}
+{#            <label for="gemValue">GEM Value:</label>#}
+{#            <input type="text" id="gemValue" name="gemValue" required>#}
+{#        </div>#}
+{##}
+{#        <div class="form-group">#}
+{#            <label for="emd">EMD:</label>#}
+{#            <select id="emdType" name="emdType">#}
+{#                <option value="percentage">Percentage</option>#}
+{#                <option value="fixed">Fixed</option>#}
+{#            </select>#}
+{#            <input type="text" id="emd" name="emd" placeholder="Enter EMD" required>#}
+{#        </div>#}
+{##}
+{#        <div class="form-group">#}
+{#            <label for="techBidOpeningDate">Technical Bid Opening Date:</label>#}
+{#            <input type="date" id="techBidOpeningDate" name="techBidOpeningDate" required>#}
+{#        </div>#}
+{##}
+{#        <div class="form-group">#}
+{#            <label for="finBidOpeningDate">Financial Bid Opening Date:</label>#}
+{#            <input type="date" id="finBidOpeningDate" name="finBidOpeningDate" required>#}
+{#        </div>#}
+{##}
+{#        <div class="form-group">#}
+{#            <label for="l1BidderName">L1 Bidder Name:</label>#}
+{#            <input type="text" id="l1BidderName" name="l1BidderName" required>#}
+{#        </div>#}
+{##}
+{#        <div class="form-group">#}
+{#            <label for="contractAwardDate">Contract Award Date:</label>#}
+{#            <input type="date" id="contractAwardDate" name="contractAwardDate" required>#}
+{#        </div>#}
+{##}
+{#        <div class="form-group">#}
+{#            <label for="l1BidderEmd">L1 Bidder EMD:</label>#}
+{#            <select id="l1BidderEmd" name="l1BidderEmd">#}
+{#                <option value="paid">Paid</option>#}
+{#                <option value="msme">MSME</option>#}
+{#            </select>#}
+{#            <input type="text" id="l1BidderEmdValue" name="l1BidderEmdValue" placeholder="Enter EMD Value" required>#}
+{#        </div>#}
+{##}
+{#        <div class="form-group">#}
+{#            <label for="l1BidderBg">L1 Bidder BG:</label>#}
+{#            <select id="l1BidderBg" name="l1BidderBg">#}
+{#                <option value="paid">Paid</option>#}
+{#                <option value="release">Release</option>#}
+{#            </select>#}
+{#            <input type="text" id="l1BidderBgValue" name="l1BidderBgValue" placeholder="Enter BG Value" required>#}
+{#        </div>#}
+{##}
+{#        <div class="form-group">#}
+{#            <label for="paymentOptions">Payment Options:</label>#}
+{#            <select id="paymentOptions" name="paymentOptions">#}
+{#                <option value="10%">10%</option>#}
+{#                <option value="25%">25%</option>#}
+{#                <option value="50%">50%</option>#}
+{#                <option value="75%">75%</option>#}
+{#                <option value="90%">90%</option>#}
+{#                <option value="100%">100%</option>#}
+{#            </select>#}
+{#        </div>#}
+        
+            <div class="form-group">
+                {{ form }}
+            </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+</body>
+</html>

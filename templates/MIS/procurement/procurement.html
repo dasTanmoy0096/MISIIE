@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procurement Tenders</title>
+    <link rel="stylesheet" href="{% static 'MIS/adminMIS.css' %}">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Procurement Tenders</h1>
+    </div>
+    <div class="sub-header">
+        <p></p>
+    </div>
+    <div class="grid">
+
+        <a href="cppp.html" class="grid-item">
+            <h3>Central Public Procurement [CPP]</h3>
+            <p></p>
+
+        </a>
+
+        <a href="gem.html" class="grid-item">
+            <h3>Government e Marketplace [GEM]</h3>
+            <p></p>
+        </a>
+
+        <a href="offline.html" class="grid-item">
+            <h3>OFFLINE</h3>
+            <p></p>
+        </a>
+        
+        <div class="bottom_aligner">
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

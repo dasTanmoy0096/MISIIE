@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{% static 'MIS/login.css' %}">
+</head>
+<body>
+<div class="container">
+    <div class="left">
+        <div class="logo">
+            <img src={% static 'MIS/logo.png' %}>
+        </div>
+        <h2>Welcome to Indian Institute of Entrepreneurship</h2>
+        <p class="small-text">
+            An Autonomous Organisation under the Ministry Of Skill Development and Entrepreneurship, Govt.of India An ISO 9001:2015 Certified Organisation</p>
+    </div>
+    <div class="right">
+        <form action="" method="post">
+            {% csrf_token %}
+            <h2>Login to your account</h2>
+            <p>Please enter your credentials below</p>
+            
+            {{ form }}
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

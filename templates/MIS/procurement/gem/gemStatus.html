@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>gemStatus</title>
+    <link rel="stylesheet" href="{% static 'MIS/status.css' %}">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Gem Status</h1>
+    </header>
+    <ol>
+        {% for entry in gemEntries %}
+            <li>
+                <a href="{% url 'gemDetail' entry.pk %}">
+                    <div class="tender-info">
+                        <span class="gem-bid-id">{{ entry.gemBidID }}</span>
+                        <span class="gem-title">{{ entry.gemTitle }}</span>
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
+    </ol>
+</div>
+</body>
+</html>

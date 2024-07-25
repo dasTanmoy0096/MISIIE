@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cpppStatus</title>
+    <link rel="stylesheet" href="{% static 'MIS/status.css' %}">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>cpppStatus</h1>
+    </header>
+    <ol>
+        {% for entry in cpppEntries %}
+            <li>
+                <a href="{% url 'cpppDetail' entry.pk %}">
+                    <div class="tender-info">
+                        <span class="tender-id">{{ entry.tenderID }}</span>
+                        <span class="tender-title">{{ entry.tenderTitle }}</span>
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
+    </ol>
+</div>
+</body>
+</html>

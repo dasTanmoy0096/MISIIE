@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #9abee0;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+.sub-header {
+    text-align: center;
+    background-color: #008080;
+    color: white;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.grid-item {
+    background-color: #FFE4B5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    text-decoration: none;
+    color: black;
+}
+
+.grid-item h3 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.grid-item pre {
+    margin: 0;
+}
+
+.grid-item:hover {
+    background-color: #F4A460;
+}
+
+.grid-item:nth-child(even) {
+    background-color: #F0E68C;
+}
+
+.references {
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+a.grid-item {
+    text-decoration: none;
+    color: black;
+}
+
+a.grid-item:visited {
+    color: black;
+}
+
+a.grid-item:hover {
+    background-color: #F4A460;
+    color: black; /* Ensures the text color remains black when hovered */
+}
+
+.bottom_aligner {
+    display: inline-block;
+    height: 100%;
+    vertical-align: bottom;
+    width: 0px;
+}

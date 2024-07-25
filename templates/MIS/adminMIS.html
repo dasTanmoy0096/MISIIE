@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin MIS
+
+    </title>
+    <link rel="stylesheet" href="{% static 'MIS/adminMIS.css' %}">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Admin MIS</h1>
+    </div>
+    <div class="sub-header">
+        <p></p>
+    </div>
+    <div class="grid">
+
+        <a href="procurement.html" class="grid-item">
+            <h3>Procurement Department</h3>
+            <p></p>
+        </a>
+
+        <a href="hr.html" class="grid-item">
+            <h3>HR Department</h3>
+            <p></p>
+        </a>
+
+        <a href="estd.html" class="grid-item">
+            <h3>ESTD</h3>
+            <p></p>
+        </a>
+
+        <div class="bottom_aligner">
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        </div>    
+    </div>
+
+</div>
+</body>
+</html>
