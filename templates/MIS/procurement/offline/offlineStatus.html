@@ -3,21 +3,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>GEM Statuses</title>
+    <title>Offline Tender Statuses</title>
     <link rel="stylesheet" href="{% static 'MIS/status.css' %}">
 </head>
 <body>
 <div class="container">
     <header>
-        <h1>GEM Statuses</h1>
+        <h1>Offline Tender Statuses</h1>
     </header>
     <ol>
-        {% for entry in gemEntries %}
+        {% for entry in offlineEntries %}
             <li>
-                <a href="{% url 'gemDetail' entry.pk %}">
+                <a href="{% url 'offlineDetail' entry.pk %}">
                     <div class="tender-info">
-                        <span class="gem-bid-id">{{ entry.gemBidID }}</span>
-                        <span class="gem-title">{{ entry.gemTitle }}</span>
+                        <span class="tender-id">{{ entry.tenderID }}</span>
+                        <span class="tender-title">{{ entry.tenderTitle }}</span>
                     </div>
                 </a>
             </li>

@@ -19,9 +19,15 @@ urlpatterns = [
 
     path('adminMIS/gemUpdate.html', views.gemUpdate, name='gemUpdate'),
 
+    path('adminMIS/offline.html', views.offline, name='offline'),
+
+    path('adminMIS/offlineUpdate.html', views.offlineUpdate, name='offlineUpdate'),
+
     path('addCppp/', views.addCppp, name='addCppp'),
 
     path('addGem/', views.addGem, name='addGem'),
+
+    path('addOffline/', views.addOffline, name='addOffline'),
 
     path('adminMIS/cpppStatus.html', views.cpppStatus, name='cpppStatus'),
 
@@ -30,4 +36,8 @@ urlpatterns = [
     path('adminMIS/gemStatus.html', views.gemStatus, name='gemStatus'),
 
     path('adminMIS/gemStatus/<int:pk>/', views.gemDetail, name='gemDetail'),
+
+    path('adminMIS/offlineStatus.html', views.offlineStatus, name='offlineStatus'),
+
+    path('adminMIS/offlineStatus/<int:pk>/', views.offlineDetail, name='offlineDetail'),
 ]

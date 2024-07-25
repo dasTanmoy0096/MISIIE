@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import CpppForm, GemForm
-from .models import Cppp, Gem
+from .forms import CpppForm, GemForm, OfflineForm
+from .models import Cppp, Gem, Offline
 from django.contrib.auth.decorators import login_required
 
 
@@ -38,6 +38,17 @@ def gemUpdate(request):
 
 
 @login_required(login_url='/')
+def offline(request):
+    return render(request, 'MIS/procurement/offline/offline.html')
+
+
+@login_required(login_url='/')
+def offlineUpdate(request):
+    context = {'form': OfflineForm}
+    return render(request, 'MIS/procurement/offline/offlineUpdate.html', context)
+
+
+@login_required(login_url='/')
 def addCppp(request):
     if request.method == 'POST':
         form = CpppForm(request.POST)
@@ -70,6 +81,22 @@ def addGem(request):
 
 
 @login_required(login_url='/')
+def addOffline(request):
+    if request.method == 'POST':
+        form = OfflineForm(request.POST)
+        if form.is_valid():
+            task = form.save(commit=False)
+            task.usern = request.user
+            task.save()
+            return redirect('offline')
+
+    else:
+        form = OfflineForm()
+
+    return render(request, 'MIS/procurement/offline/offlineUpdate.html', {'form': OfflineForm})
+
+
+@login_required(login_url='/')
 def cpppStatus(request):
     cpppEntries = Cppp.objects.all()
     return render(request, 'MIS/procurement/cppp/cpppStatus.html', {'cpppEntries': cpppEntries})
@@ -91,3 +118,15 @@ def gemStatus(request):
 def gemDetail(request, pk):
     entry = get_object_or_404(Gem, pk=pk)
     return render(request, 'MIS/procurement/gem/gemDetail.html', {'entry': entry})
+
+
+@login_required(login_url='/')
+def offlineStatus(request):
+    offlineEntries = Offline.objects.all()
+    return render(request, 'MIS/procurement/offline/offlineStatus.html', {'offlineEntries': offlineEntries})
+
+
+@login_required(login_url='/')
+def offlineDetail(request, pk):
+    entry = get_object_or_404(Offline, pk=pk)
+    return render (request, 'MIS/procurement/offline/offlineDetail.html', {'entry': entry})

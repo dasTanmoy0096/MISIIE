@@ -10,7 +10,7 @@ class Userbase(models.Model):
 
 
 class Cppp(models.Model):
-    tenderRefNum = models.IntegerField()
+    tenderReferenceNumber = models.IntegerField()
     tenderID = models.CharField(max_length=50)
     tenderTitle = models.CharField(max_length=50)
     tenderCategory = models.CharField(max_length=50, choices=[('Goods', 'Goods'), ('Services', 'Services'), ('Works', 'Works')])
@@ -19,8 +19,8 @@ class Cppp(models.Model):
     tenderValue = models.IntegerField()
     emdType = models.CharField(max_length=50, choices=[('Percentage', 'Percentage'), ('Fixed', 'Fixed')])
     emd = models.IntegerField()
-    techBidOpeningDate = models.DateField()
-    finBidOpeningDate = models.DateField()
+    technicalBidOpeningDate = models.DateField()
+    financialBidOpeningDate = models.DateField()
     l1BidderName = models.CharField(max_length=50)
     contractAwardDate = models.DateField()
     l1BidderEmd = models.CharField(max_length=50, choices=[('Paid', 'Paid'), ('Unpaid', 'Unpaid')])
@@ -31,7 +31,7 @@ class Cppp(models.Model):
 
 
 class Gem(models.Model):
-    gemRefNum = models.IntegerField()
+    gemReferenceNumber = models.IntegerField()
     gemBidID = models.CharField(max_length=50)
     gemTitle = models.CharField(max_length=50)
     gemCategory = models.CharField(max_length=50, choices=[('Goods', 'Goods'), ('Services', 'Services')])
@@ -40,8 +40,29 @@ class Gem(models.Model):
     gemValue = models.IntegerField()
     emdType = models.CharField(max_length=50, choices=[('Percentage', 'Percentage'), ('Fixed', 'Fixed')])
     emd = models.IntegerField()
-    techBidOpeningDate = models.DateField()
-    finBidOpeningDate = models.DateField()
+    technicalBidOpeningDate = models.DateField()
+    financialBidOpeningDate = models.DateField()
+    l1BidderName = models.CharField(max_length=50)
+    contractAwardDate = models.DateField()
+    l1BidderEmd = models.CharField(max_length=50, choices=[('Paid', 'Paid'), ('Unpaid', 'Unpaid')])
+    l1BidderEmdValue = models.IntegerField()
+    l1BidderBg = models.CharField(max_length=50, choices=[('Paid', 'Paid'), ('Unpaid', 'Unpaid')])
+    l1BidderBgValue = models.IntegerField()
+    paymentOptions = models.CharField(max_length=50, choices=[('10%', '10%'), ('25%', '25%'), ('50%', '50%'), ('75%', '75%'), ('90%', '90%'), ('100%', '100%')])
+
+
+class Offline(models.Model):
+    tenderReferenceNumber = models.IntegerField()
+    tenderID = models.CharField(max_length=50)
+    tenderTitle = models.CharField(max_length=50)
+    tenderCategory = models.CharField(max_length=50, choices=[('Goods', 'Goods'), ('Services', 'Services'), ('Works', 'Works')])
+    tenderFeeType = models.CharField(max_length=50, choices=[('Paid', 'Paid'), ('Unpaid', 'Unpaid')])
+    tenderFee = models.IntegerField()
+    tenderValue = models.IntegerField()
+    emdType = models.CharField(max_length=50, choices=[('Percentage', 'Percentage'), ('Fixed', 'Fixed')])
+    emd = models.IntegerField()
+    technicalBidOpeningDate = models.DateField()
+    financialBidOpeningDate = models.DateField()
     l1BidderName = models.CharField(max_length=50)
     contractAwardDate = models.DateField()
     l1BidderEmd = models.CharField(max_length=50, choices=[('Paid', 'Paid'), ('Unpaid', 'Unpaid')])

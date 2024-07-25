@@ -3,48 +3,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>GEM Detail</title>
+    <title>Offline Tender Detail</title>
     <link rel="stylesheet" href="{% static 'MIS/detail.css' %}">
 </head>
 <body>
 <div class="container">
-    <div class="title">GEM Detail</div>
+    <div class="title">Offline Tender Detail</div>
 
     <table>
         <tr>
-            <th colspan="2">Gem Details</th>
+            <th colspan="2">Basic Details</th>
         </tr>
         <tr>
-            <td><b>Gem Reference Number</b></td>
-            <td>{{ entry.gemReferenceNumber }}</td>
+            <td><b>Tender Reference Number</b></td>
+            <td>{{ entry.tenderReferenceNumber }}</td>
         </tr>
         <tr>
-            <td><b>Gem ID</b></td>
-            <td>{{ entry.gemBidID }}</td>
+            <td><b>Tender ID</b></td>
+            <td>{{ entry.tenderID }}</td>
         </tr>
         <tr>
-            <td><b>Gem Title</b></td>
-            <td>{{ entry.gemTitle }}</td>
+            <td><b>Tender Title</b></td>
+            <td>{{ entry.tenderTitle }}</td>
         </tr>
         <tr>
-            <td><b>Gem Category</b></td>
-            <td>{{ entry.gemCategory }}</td>
+            <td><b>Tender Category</b></td>
+            <td>{{ entry.tenderCategory }}</td>
         </tr>
     </table>
 
     <table>
         <tr>
-            <th colspan="3">Gem Fee Details</th>
+            <th colspan="3">Tender Fee Details</th>
         </tr>
         <tr>
-            <td><b>Gem Fee Type</b></td>
-            <td><b>Gem Fee</b></td>
-            <td><b>Gem Value</b></td>
+            <td><b>Tender Fee Type</b></td>
+            <td><b>Tender Fee</b></td>
+            <td><b>Tender Value</b></td>
         </tr>
         <tr>
-            <td>{{ entry.gemFeeType }}</td>
-            <td>{{ entry.gemFee }}</td>
-            <td>{{ entry.gemValue }}</td>
+            <td>{{ entry.tenderFeeType }}</td>
+            <td>{{ entry.tenderFee }}</td>
+            <td>{{ entry.tenderValue }}</td>
         </tr>
     </table>
 
@@ -73,14 +73,6 @@
         <tr>
             <td><b>Financial Bid Opening Date</b></td>
             <td colspan="3">{{ entry.financialBidOpeningDate }}</td>
-        </tr>
-        <tr>
-            <td><b>L1 Bidder Name</b></td>
-            <td colspan="3">{{ entry.l1BidderName }}</td>
-        </tr>
-        <tr>
-            <td><b>Contract Award Date</b></td>
-            <td colspan="3">{{ entry.contractAwardDate }}</td>
         </tr>
         <tr>
             <td><b>L1 Bidder Emd</b></td>
