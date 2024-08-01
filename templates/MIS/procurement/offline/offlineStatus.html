@@ -13,11 +13,23 @@
     </header>
     <ol>
         {% for entry in offlineEntries %}
+            {% if entry.pk == 1 %}
+                <div class="tender-info">
+                    <span class="tender-heading">Tender ID</span>
+                    <span class="tender-heading">Tender Title</span>
+                    <span class="tender-heading">Tender Category</span>
+                    <span class="tender-heading">Tender Fee Type</span>
+                    <span class="tender-heading">Tender Fee</span>
+                </div>
+            {% endif %}
             <li>
                 <a href="{% url 'offlineDetail' entry.pk %}">
                     <div class="tender-info">
                         <span class="tender-id">{{ entry.tenderID }}</span>
                         <span class="tender-title">{{ entry.tenderTitle }}</span>
+                        <span class="tender-title">{{ entry.tenderCategory }}</span>
+                        <span class="tender-title">{{ entry.tenderFeeType }}</span>
+                        <span class="tender-title">{{ entry.tenderFee }}</span>
                     </div>
                 </a>
             </li>

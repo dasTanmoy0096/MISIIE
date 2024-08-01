@@ -13,11 +13,19 @@
     </header>
     <ol>
         {% for entry in consultancyEntries %}
+            {% if entry.pk == 1 %}
+                <div class="tender-info">
+                    <span class="tender-heading">Service Provider</span>
+                    <span class="tender-heading">Remarks</span>
+                    <span class="tender-heading">Amount</span>
+                </div>
+            {% endif %}
             <li>
                 <a href="{% url 'consultanciesDetail' entry.pk %}">
                     <div class="tender-info">
                         <span class="tender-id">{{ entry.serviceProvider }}</span>
                         <span class="tender-title">{{ entry.remarks }}</span>
+                        <span class="tender-heading">{{ entry.amount }}</span>
                     </div>
                 </a>
             </li>

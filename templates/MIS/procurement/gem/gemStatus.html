@@ -13,11 +13,23 @@
     </header>
     <ol>
         {% for entry in gemEntries %}
+            {% if entry.pk == 1 %}
+                <div class="tender-info">
+                    <span class="tender-heading">GEM Bid ID</span>
+                    <span class="tender-heading">GEM Title</span>
+                    <span class="tender-heading">GEM Category</span>
+                    <span class="tender-heading">GEM Fee Type</span>
+                    <span class="tender-heading">GEM Fee</span>
+                </div>
+            {% endif %}
             <li>
                 <a href="{% url 'gemDetail' entry.pk %}">
                     <div class="tender-info">
                         <span class="gem-bid-id">{{ entry.gemBidID }}</span>
                         <span class="gem-title">{{ entry.gemTitle }}</span>
+                        <span class="gem-title">{{ entry.gemCategory }}</span>
+                        <span class="gem-title">{{ entry.gemFeeType }}</span>
+                        <span class="gem-title">{{ entry.gemFee }}</span>
                     </div>
                 </a>
             </li>
