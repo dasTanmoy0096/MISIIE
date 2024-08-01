@@ -45,3 +45,31 @@ th {
     vertical-align: bottom;
     width: 0px;
 }
+
+.edit-button {
+    margin-top: 20px;
+    text-align: center;
+}
+.edit-button a {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.edit-button a:hover {
+    background-color: #0056b3;
+}
+
+.logout-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #1F6C8B;
+    color: white;
+    padding: 30px 60px; /* Increased padding for a larger button */
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 24px; /* Increased font size */
+}

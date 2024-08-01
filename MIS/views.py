@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import CpppForm, GemForm, OfflineForm
-from .models import Cppp, Gem, Offline
+from .forms import CpppForm, GemForm, OfflineForm, ConsultancyForm
+from .models import Cppp, Gem, Offline, Consultancy
 from django.contrib.auth.decorators import login_required
 
 
@@ -46,6 +46,17 @@ def offline(request):
 def offlineUpdate(request):
     context = {'form': OfflineForm}
     return render(request, 'MIS/procurement/offline/offlineUpdate.html', context)
+
+
+@login_required(login_url='/')
+def consultancies(request):
+    return render(request, 'MIS/procurement/consultancies/consultancies.html')
+
+
+@login_required(login_url='/')
+def consultanciesUpdate(request):
+    context = {'form': ConsultancyForm}
+    return render(request, 'MIS/procurement/consultancies/consultanciesUpdate.html', context)
 
 
 @login_required(login_url='/')
@@ -97,6 +108,22 @@ def addOffline(request):
 
 
 @login_required(login_url='/')
+def addConsultancy(request):
+    if request.method == 'POST':
+        form = ConsultancyForm(request.POST)
+        if form.is_valid():
+            task = form.save(commit=False)
+            task.usern = request.user
+            task.save()
+            return redirect('consultancies')
+
+    else:
+        form = ConsultancyForm()
+
+    return render(request, 'MIS/procurement/consultancies/consultanciesUpdate.html', {'form': ConsultancyForm})
+
+
+@login_required(login_url='/')
 def cpppStatus(request):
     cpppEntries = Cppp.objects.all()
     return render(request, 'MIS/procurement/cppp/cpppStatus.html', {'cpppEntries': cpppEntries})
@@ -115,6 +142,12 @@ def gemStatus(request):
 
 
 @login_required(login_url='/')
+def consultanciesStatus(request):
+    consultancyEntries = Consultancy.objects.all()
+    return render(request, 'MIS/procurement/consultancies/consultanciesStatus.html', {'consultancyEntries': consultancyEntries})
+
+
+@login_required(login_url='/')
 def gemDetail(request, pk):
     entry = get_object_or_404(Gem, pk=pk)
     return render(request, 'MIS/procurement/gem/gemDetail.html', {'entry': entry})
@@ -130,3 +163,78 @@ def offlineStatus(request):
 def offlineDetail(request, pk):
     entry = get_object_or_404(Offline, pk=pk)
     return render (request, 'MIS/procurement/offline/offlineDetail.html', {'entry': entry})
+
+
+@login_required(login_url='/')
+def consultanciesDetail(request, pk):
+    entry = get_object_or_404(Consultancy, pk=pk)
+    return render (request, 'MIS/procurement/consultancies/consultanciesDetail.html', {'entry': entry})
+
+
+@login_required(login_url='/')
+def cpppEdit(request, pk):
+    entry = get_object_or_404(Cppp, pk=pk)
+    if request.method == 'POST':
+        form = CpppForm(request.POST, instance=entry)
+        if form.is_valid():
+            form.save()
+            return redirect('cpppStatus')
+
+    else:
+        entry = get_object_or_404(Cppp, pk=pk)
+        form = CpppForm(instance=entry)
+
+    return render(request, 'MIS/procurement/cppp/cpppEdit.html', {'form': form, 'entry': entry})
+
+
+@login_required(login_url='/')
+def gemEdit(request, pk):
+    entry = get_object_or_404(Gem, pk=pk)
+    if request.method == 'POST':
+        form = GemForm(request.POST, instance=entry)
+        if form.is_valid():
+            form.save()
+            return redirect('gemStatus')
+
+    else:
+        entry = get_object_or_404(Gem, pk=pk)
+        form = GemForm(instance=entry)
+
+    return render(request, 'MIS/procurement/gem/gemEdit.html', {'form': form, 'entry': entry})
+
+
+@login_required(login_url='/')
+def offlineEdit(request, pk):
+    entry = get_object_or_404(Offline, pk=pk)
+    if request.method == 'POST':
+        form = OfflineForm(request.POST, instance=entry)
+        if form.is_valid():
+            form.save()
+            return redirect('offlineStatus')
+
+    else:
+        entry = get_object_or_404(Offline, pk=pk)
+        form = OfflineForm(instance=entry)
+
+    return render(request, 'MIS/procurement/offline/offlineEdit.html', {'form': form, 'entry': entry})
+
+
+@login_required(login_url='/')
+def consultanciesEdit(request, pk):
+    entry = get_object_or_404(Consultancy, pk=pk)
+    if request.method == 'POST':
+        form = ConsultancyForm(request.POST, instance=entry)
+        if form.is_valid():
+            form.save()
+            return redirect('consultanciesStatus')
+
+    else:
+        entry = get_object_or_404(Consultancy, pk=pk)
+        form = ConsultancyForm(instance=entry)
+
+    return render(request, 'MIS/procurement/consultancies/consultanciesEdit.html', {'form': form, 'entry': entry})
+
+
+@login_required(login_url='/')
+def construction(request):
+    return render(request, 'MIS/construction.html')

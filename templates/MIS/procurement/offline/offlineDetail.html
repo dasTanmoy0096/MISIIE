@@ -91,6 +91,14 @@
             <td colspan="3">{{ entry.paymentOptions }}</td>
         </tr>
     </table>
+
+    <div class="edit-button">
+        <a href = "{% url 'offlineEdit' entry.pk %}">Edit</a>
+    </div>
 </div>
+<form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <button class="logout-button" type="submit">Logout</button>
+</form>
 </body>
 </html>

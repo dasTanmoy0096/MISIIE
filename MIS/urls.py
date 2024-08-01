@@ -23,11 +23,17 @@ urlpatterns = [
 
     path('adminMIS/offlineUpdate.html', views.offlineUpdate, name='offlineUpdate'),
 
+    path('adminMIS/consultancies.html', views.consultancies, name='consultancies'),
+
+    path('adminMIS/consultanciesUpdate.html', views.consultanciesUpdate, name='consultanciesUpdate'),
+
     path('addCppp/', views.addCppp, name='addCppp'),
 
     path('addGem/', views.addGem, name='addGem'),
 
     path('addOffline/', views.addOffline, name='addOffline'),
+
+    path('addConsultancy', views.addConsultancy, name='addConsultancy'),
 
     path('adminMIS/cpppStatus.html', views.cpppStatus, name='cpppStatus'),
 
@@ -40,4 +46,19 @@ urlpatterns = [
     path('adminMIS/offlineStatus.html', views.offlineStatus, name='offlineStatus'),
 
     path('adminMIS/offlineStatus/<int:pk>/', views.offlineDetail, name='offlineDetail'),
+
+
+    path('adminMIS/consultanciesStatus.html', views.consultanciesStatus, name='consultanciesStatus'),
+
+    path('adminMIS/consultanciesStatus/<int:pk>/', views.consultanciesDetail, name='consultanciesDetail'),
+
+    path('adminMIS/cpppStatus/<int:pk>/edit/', views.cpppEdit, name='cpppEdit'),
+
+    path('adminMIS/gemStatus/<int:pk>/edit/', views.gemEdit, name='gemEdit'),
+
+    path('adminMIS/offlineStatus/<int:pk>/edit/', views.offlineEdit, name='offlineEdit'),
+
+    path('adminMIS/consultanciesStatus.html/<int:pk>/edit/', views.consultanciesEdit, name='consultanciesEdit'),
+
+    path('adminMIS/construction.html', views.construction, name='construction'),
 ]

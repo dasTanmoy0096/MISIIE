@@ -70,3 +70,13 @@ class Offline(models.Model):
     l1BidderBg = models.CharField(max_length=50, choices=[('Paid', 'Paid'), ('Unpaid', 'Unpaid')])
     l1BidderBgValue = models.IntegerField()
     paymentOptions = models.CharField(max_length=50, choices=[('10%', '10%'), ('25%', '25%'), ('50%', '50%'), ('75%', '75%'), ('90%', '90%'), ('100%', '100%')])
+
+
+class Consultancy(models.Model):
+    serviceProvider = models.CharField(max_length=500)
+    orderFileNo = models.CharField(max_length=50)
+    orderDated = models.DateField()
+    serviceStartDate = models.DateField()
+    extensionEndDate = models.DateField()
+    remarks = models.CharField(max_length=500)
+    amount = models.IntegerField()

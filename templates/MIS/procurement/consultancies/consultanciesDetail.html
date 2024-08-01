@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Consultancy Details</title>
+    <link rel="stylesheet" href="{% static 'MIS/detail.css' %}">
+</head>
+<body>
+<div class="container">
+    <div class="title">Consultancy Details</div>
+
+    <table>
+        <tr>
+            <th colspan="2">Basic Details</th>
+        </tr>
+        <tr>
+            <td><b>Service Provider</b></td>
+            <td>{{ entry.serviceProvider }}</td>
+        </tr>
+        <tr>
+            <td><b>Order File No.</b></td>
+            <td>{{ entry.orderFileNo }}</td>
+        </tr>
+        <tr>
+            <td><b>Order Dated</b></td>
+            <td>{{ entry.orderDated }}</td>
+        </tr>
+        <tr>
+            <td><b>Service Start Date</b></td>
+            <td>{{ entry.serviceStartDate }}</td>
+        </tr>
+        <tr>
+            <td><b>Extension End Date</b></td>
+            <td>{{ entry.extensionEndDate }}</td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <th colspan="2">Financial Details</th>
+        </tr>
+        <tr>
+            <td><b>Remarks</b></td>
+            <td>{{ entry.remarks }}</td>
+        </tr>
+        <tr>
+            <td><b>Amount</b></td>
+            <td>{{ entry.amount }}</td>
+        </tr>
+    </table>
+
+    <div class="edit-button">
+        <a href="{% url 'consultanciesEdit' entry.pk %}">Edit</a>
+    </div>
+</div>
+</body>
+</html>

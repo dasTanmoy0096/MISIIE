@@ -4,42 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Procurement Tenders</title>
+    <title>Consultancy/Non-Consultancy update and status</title>
     <link rel="stylesheet" href="{% static 'MIS/adminMIS.css' %}">
 </head>
 <body>
 <div class="container">
     <div class="header">
-        <h1>Procurement Tenders</h1>
+        <h1>CONSULTANCY/NON-CONSULTANCY UPDATE & STATUS</h1>
     </div>
     <div class="sub-header">
         <p></p>
     </div>
     <div class="grid">
 
-        <a href="cppp.html" class="grid-item">
-            <h3>Central Public Procurement [CPP]</h3>
-            <p></p>
-
-        </a>
-
-        <a href="gem.html" class="grid-item">
-            <h3>Government e Marketplace [GEM]</h3>
+        <a href="consultanciesUpdate.html" class="grid-item">
+            <h3>Update</h3>
             <p></p>
         </a>
 
-        <a href="offline.html" class="grid-item">
-            <h3>OFFLINE</h3>
-            <p></p>
-        </a>
-        
-        <a href="consultancies.html" class="grid-item">
-            <h3>Consultancy/Non-Consultancy Services</h3>
+        <a href="consultanciesStatus.html" class="grid-item">
+            <h3>Status</h3>
             <p></p>
         </a>
     </div>
 </div>
-
 <form action="{% url 'logout' %}" method="post">
     {% csrf_token %}
     <button class="logout-button" type="submit">Logout</button>

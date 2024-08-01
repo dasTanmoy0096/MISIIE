@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Consultancy/Non-Consultancy Tender Statuses</title>
+    <link rel="stylesheet" href="{% static 'MIS/status.css' %}">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Consultancy/Non-Consultancy Tender Statuses</h1>
+    </header>
+    <ol>
+        {% for entry in consultancyEntries %}
+            <li>
+                <a href="{% url 'consultanciesDetail' entry.pk %}">
+                    <div class="tender-info">
+                        <span class="tender-id">{{ entry.serviceProvider }}</span>
+                        <span class="tender-title">{{ entry.remarks }}</span>
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
+    </ol>
+</div>
+</body>
+</html>

@@ -5,16 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static "MIS/tenderForm.css" %}">
-    <title>GEM Form</title>
+    <title>Edit Gem Entry</title>
 </head>
 <body>
 <div class="form-container">
-    <h1>GEM Form</h1>
-    <form action="{% url 'addGem' %}" method="post">
+    <h1>Edit Gem Entry</h1>
+    <form action="{%  url 'gemEdit' entry.pk %}" method="post">
         {% csrf_token %}
-            <div class="form-group">
-                {{ form }}
-            </div>
+
+        <div class="form-group">
+            {{ form }}
+        </div>
 
         <button type="submit">Submit</button>
     </form>

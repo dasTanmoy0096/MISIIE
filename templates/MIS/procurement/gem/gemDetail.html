@@ -99,6 +99,10 @@
             <td colspan="3">{{ entry.paymentOptions }}</td>
         </tr>
     </table>
+
+    <div class="edit-button">
+        <a href = "{% url 'gemEdit' entry.pk %}">Edit</a>
+    </div>
 </div>
 </body>
 </html>
